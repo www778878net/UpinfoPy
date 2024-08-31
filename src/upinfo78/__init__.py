@@ -1,1 +1,0 @@
-from .upinfo78 import UpInfo78

@@ -1,17 +1,17 @@
-<h1 align="center">upinfo78</h1>
+<h1 align="center">upinfopy</h1>
 <div align="center">
 
 [English](./README.md) | 简体中文
 
-「upinfo78」是UpInfo78的Python实现。
+「upinfopy」是UpInfo78的Python实现。
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://badge.fury.io/py/upinfo78.svg)](https://badge.fury.io/py/upinfo78)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![QQ群](https://img.shields.io/badge/QQ群-323397913-blue.svg?style=flat-square&color=12b7f5&logo=qq)](https://qm.qq.com/cgi-bin/qm/qr?k=it9gUUVdBEDWiTOH21NsoRHAbE9IAzAO&jump_from=webapi&authKey=KQwSXEPwpAlzAFvanFURm0Foec9G9Dak0DmThWCexhqUFbWzlGjAFC7t0jrjdKdL)
 
 </div>
 
-## API文档地址：[http://www.778878.net/docs/#/upinfo78/](http://www.778878.net/docs/#/upinfo78/)
+## API文档地址：[http://www.778878.net/docs/#/upinfopy/](http://www.778878.net/docs/#/upinfopy/)
+
 ## 反馈qq群(点击加群)：[323397913](https://qm.qq.com/cgi-bin/qm/qr?k=it9gUUVdBEDWiTOH21NsoRHAbE9IAzAO&jump_from=webapi&authKey=KQwSXEPwpAlzAFvanFURm0Foec9G9Dak0DmThWCexhqUFbWzlGjAFC7t0jrjdKdL)
 
 ## 背景 
@@ -40,7 +40,7 @@
 ## 安装
 
 ```
-pip install upinfo78
+pip install upinfopy
 ```
 
 ## 属性
@@ -54,10 +54,10 @@ pip install upinfo78
 ## 示例 
 
 ```python
-from upinfo78 import UpInfo78
+from upinfopy import UpinfoPy
 
-# 创建UpInfo78实例
-up = UpInfo78()
+# 创建UpinfoPy实例
+up = UpinfoPy()
 
 # 使用方法
 result = up.some_method()

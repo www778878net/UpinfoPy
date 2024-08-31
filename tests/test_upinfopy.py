@@ -1,18 +1,18 @@
 import unittest
-from upinfo78 import UpInfo78
+from upinfopy import UpinfoPy
 
-class TestUpInfo78(unittest.TestCase):
+class TestUpinfoPy(unittest.TestCase):
     def setUp(self):
-        UpInfo78.pcid = ""  # 重置静态变量
+        UpinfoPy.pcid = ""  # 重置静态变量
 
     def test_to_url_encode_default_values(self):
-        up_info = UpInfo78()
+        up_info = UpinfoPy()
         url_encoded = up_info.to_url_encode()
         self.assertEqual("sid=", url_encoded)
 
     def test_to_url_encode_with_custom_values(self):
-        UpInfo78.pcid = "PC123"
-        up_info = UpInfo78()
+        UpinfoPy.pcid = "PC123"
+        up_info = UpinfoPy()
         up_info.uname = "testuser"
         up_info.cid = "cidguest"
         up_info.bcid = "cidvps"
@@ -32,19 +32,19 @@ class TestUpInfo78(unittest.TestCase):
         self.assertEqual(expected, url_encoded)
 
     def test_cid_handling(self):
-        up_info = UpInfo78()
+        up_info = UpinfoPy()
         up_info.cid = "cidmy"
         url_encoded = up_info.to_url_encode()
         self.assertIn("cid=d4856531-e9d3-20f3-4c22-fe3c65fb009c", url_encoded)
 
     def test_bcid_handling(self):
-        up_info = UpInfo78()
+        up_info = UpinfoPy()
         up_info.bcid = "cidguest"
         url_encoded = up_info.to_url_encode()
         self.assertIn("bcid=GUEST000-8888-8888-8888-GUEST00GUEST", url_encoded)
 
     def test_pars_encoding_v22(self):
-        up_info = UpInfo78()
+        up_info = UpinfoPy()
         up_info.v = 22
         up_info.set_par("param1", "param2")
         url_encoded = up_info.to_url_encode()
@@ -52,7 +52,7 @@ class TestUpInfo78(unittest.TestCase):
         # 这里可以添加更具体的断言来检查编码后的参数格式
 
     def test_pars_encoding_default(self):
-        up_info = UpInfo78()
+        up_info = UpinfoPy()
         up_info.set_par("param1", "param2")
         url_encoded = up_info.to_url_encode()
         self.assertIn("pars=%5B%22param1%22%2C%20%22param2%22%5D", url_encoded)

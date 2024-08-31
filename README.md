@@ -1,17 +1,16 @@
-<h1 align="center">upinfo78</h1>
+<h1 align="center">upinfopy</h1>
 <div align="center">
 
 English | [简体中文](./README.cn.md)
 
-**upinfo78** is a Python implementation of UpInfo78.
+**upinfopy** is a Python implementation of UpInfo78.
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![PyPI version](https://badge.fury.io/py/upinfo78.svg)](https://badge.fury.io/py/upinfo78)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![QQ Group](https://img.shields.io/badge/QQ%20Group-323397913-blue.svg?style=flat-square&color=12b7f5&logo=qq)](https://qm.qq.com/cgi-bin/qm/qr?k=it9gUUVdBEDWiTOH21NsoRHAbE9IAzAO&jump_from=webapi&authKey=KQwSXEPwpAlzAFvanFURm0Foec9G9Dak0DmThWCexhqUFbWzlGjAFC7t0jrjdKdL)
 
 </div>
 
-## API Documentation: [http://www.778878.net/docs/#/upinfo78/](http://www.778878.net/docs/#/upinfo78/)
+## API Documentation: [http://www.778878.net/docs/#/upinfopy/](http://www.778878.net/docs/#/upinfopy/)
 ## Feedback QQ Group (Click to join): [323397913](https://qm.qq.com/cgi-bin/qm/qr?k=it9gUUVdBEDWiTOH21NsoRHAbE9IAzAO&jump_from=webapi&authKey=KQwSXEPwpAlzAFvanFURm0Foec9G9Dak0DmThWCexhqUFbWzlGjAFC7t0jrjdKdL)
 
 ## Background
@@ -40,7 +39,7 @@ English | [简体中文](./README.cn.md)
 ## Installation
 
 ```
-pip install upinfo78
+pip install upinfopy
 ```
 
 ## Properties
@@ -54,10 +53,10 @@ See the API documentation for details.
 ## Demo
 
 ```python
-from upinfo78 import UpInfo78
+from upinfopy import UpinfoPy
 
-# Create UpInfo78 instance
-up = UpInfo78()
+# Create UpinfoPy instance
+up = UpinfoPy()
 
 # Use methods
 result = up.some_method()
