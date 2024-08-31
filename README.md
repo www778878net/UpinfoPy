@@ -10,7 +10,7 @@ English | [简体中文](./README.cn.md)
 
 </div>
 
-## API Documentation: [http://www.778878.net/docs/#/upinfopy/](http://www.778878.net/docs/#/upinfopy/)
+
 ## Feedback QQ Group (Click to join): [323397913](https://qm.qq.com/cgi-bin/qm/qr?k=it9gUUVdBEDWiTOH21NsoRHAbE9IAzAO&jump_from=webapi&authKey=KQwSXEPwpAlzAFvanFURm0Foec9G9Dak0DmThWCexhqUFbWzlGjAFC7t0jrjdKdL)
 
 ## Background
