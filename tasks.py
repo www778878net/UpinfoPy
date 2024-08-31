@@ -1,15 +1,23 @@
-from invoke import task, run
+from invoke import task, run, Program
+
+@task
+def build(c):
+    run("python -m build")
+
+@task
+def install(c):
+    run("pip install . --force-reinstall")
 
 @task
 def setup(c):
     run("pip install build")
-    run("python -m build")
-    run("pip install .")
+    build(c)
+    install(c)
 
 @task
 def publish(c):
-    c.run("python -m build")
-    c.run("twine upload --repository pypi dist/*")
+    build(c)
+    run("twine upload --repository pypi dist/*")
 
 @task
 def run_all(c):
@@ -18,4 +26,6 @@ def run_all(c):
     publish(c)
 
 if __name__ == "__main__":
-    run_all()
+    import sys
+    program = Program()
+    sys.exit(program.run())
