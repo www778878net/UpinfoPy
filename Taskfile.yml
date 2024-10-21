@@ -23,7 +23,11 @@ tasks:
       - poetry version patch
       - poetry run python -m build
       - poetry run twine upload --repository pypi dist/*
-    desc: "Publish the project"
+      - git add .
+      - git commit -m "Bump version to $(poetry version -s)"
+      - git tag v$(poetry version -s)
+      - git push origin --tags
+    desc: "Publish the project and create a Git tag"
 
   run_all:
     cmds:
@@ -33,4 +37,8 @@ tasks:
       - poetry version patch
       - poetry run python -m build
       - poetry run twine upload --repository pypi dist/*
-    desc: "Run all tasks"
+      - git add pyproject.toml
+      - git commit -m "Bump version to $(poetry version -s)"
+      - git tag v$(poetry version -s)
+      - git push origin --tags
+    desc: "Run all tasks and create a Git tag"
