@@ -1,10 +1,7 @@
 import requests
 import sys
 import os
-# 将包目录添加到模块搜索路径中
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from upinfo import UpInfo
 
 class Api78:
     def __init__(self, base_url):
@@ -23,7 +20,10 @@ class Api78:
 
 # 示例使用
 if __name__ == "__main__":
-    
+    # 将包目录添加到模块搜索路径中
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+    from upinfo import UpInfo
     up= UpInfo()
     up.sid="GUEST888-8888-8888-8888-GUEST88GUEST"
     up.uname="guest"
