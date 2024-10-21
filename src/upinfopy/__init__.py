@@ -1,1 +1,1 @@
-from .upinfopy import UpinfoPy
+from .upinfo import UpinfoPy

@@ -1,0 +1,36 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - poetry run python -m build
+    desc: "Build the project"
+
+  install:
+    cmds:
+      - poetry run pip install . --force-reinstall
+    desc: "Install the project"
+
+  setup:
+    cmds:
+      - poetry run python -m build
+      - poetry run pip install . --force-reinstall
+    desc: "Setup the project"
+
+  publish:
+    cmds:
+      - powershell Remove-Item -Recurse -Force dist
+      - poetry version patch
+      - poetry run python -m build
+      - poetry run twine upload --repository pypi dist/*
+    desc: "Publish the project"
+
+  run_all:
+    cmds:
+      - poetry run python -m build
+      - poetry run pip install . --force-reinstall
+      - poetry run pytest
+      - poetry version patch
+      - poetry run python -m build
+      - poetry run twine upload --repository pypi dist/*
+    desc: "Run all tasks"

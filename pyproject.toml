@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "upinfopy"
-version = "0.1.2"
+version = "0.1.6"
 description = "Python implementation of UpInfo78"
 authors = ["frieda <www778878net@189.cn>"]
 readme = "README.md"
@@ -17,8 +17,10 @@ packages = [{include = "upinfopy", from = "src"}]
 python = ">=3.9"
 invoke = "^1.7.0"
 
+
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
+build = "^1.2.2.post1"
 
 [tool.poetry.scripts]
 build = "tasks:build"
