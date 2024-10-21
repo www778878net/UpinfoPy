@@ -99,7 +99,7 @@ class UpInfo:
 
     @staticmethod
     def getGuest():
-        up2 = UpInfo(None)
+        up2 = UpInfo()
         up2.sid = 'GUEST888-8888-8888-8888-GUEST88GUEST'
         up2.cid = 'GUEST000-8888-8888-8888-GUEST00GUEST'
         up2.bcid = 'd4856531-e9d3-20f3-4c22-fe3c65fb009c'
@@ -123,7 +123,7 @@ class UpInfo:
         return UpInfo._masterInstance
     
     def clone(self):
-        clonedUpInfo = UpInfo(None)
+        clonedUpInfo = UpInfo()
         clonedUpInfo.sid = self.sid
         clonedUpInfo.uname = self.uname
         clonedUpInfo.bcid = self.bcid
