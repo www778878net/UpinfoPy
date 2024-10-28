@@ -1,3 +1,4 @@
+import json
 import requests
 import sys
 import os
@@ -6,6 +7,25 @@ import os
 class Api78:
     def __init__(self, base_url):
         self.base_url = base_url
+
+    async def send_Back(self, endpoint, params,backtype="json"):
+        url = f"{self.base_url}/{endpoint}"
+        try:
+            response = requests.get(url, params=params)
+            response.raise_for_status()  # 检查响应状态码
+            res= response.json()  # 返回JSON格式的数据
+            if(res["res"]!=0):
+                print(f"{url} 请求失败 : {res['errmsg']}")
+                return            
+            if(back=="json"):
+                back=json.loads(res["back"])
+            else:
+                back=res["back"]
+            return back
+        except requests.exceptions.HTTPError as http_err:
+            return {"error": f"HTTP error occurred: {http_err}"}
+        except Exception as err:
+            return {"error": f"An error occurred: {err}"}
 
     def send_request(self, endpoint, params):
         url = f"{self.base_url}/{endpoint}"
