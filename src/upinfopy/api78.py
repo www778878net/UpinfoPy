@@ -8,7 +8,7 @@ class Api78:
     def __init__(self, base_url):
         self.base_url = base_url
 
-    async def send_Back(self, endpoint, params,backtype="json"):
+    async def send_back(self, endpoint, params,backtype="json"):
         url = f"{self.base_url}/{endpoint}"
         try:
             response = requests.get(url, params=params)
