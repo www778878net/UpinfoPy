@@ -16,12 +16,13 @@ class Api78:
             res= response.json()  # 返回JSON格式的数据
             if(res["res"]!=0):
                 print(f"{url} 请求失败 : {res['errmsg']}")
-                return            
-            if(back=="json"):
-                back=json.loads(res["back"])
+                return    
+                  
+            if(backtype=="json"):
+                res=json.loads(res["back"])
             else:
-                back=res["back"]
-            return back
+                res=res["back"]
+            return res
         except requests.exceptions.HTTPError as http_err:
             return {"error": f"HTTP error occurred: {http_err}"}
         except Exception as err:
