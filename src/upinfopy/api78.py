@@ -23,7 +23,7 @@ class Api78:
         try:
             response = requests.get(url, params=params)
             response.raise_for_status()  # 检查响应状态码
-            return response  # 返回JSON格式的数据
+            return response.text()  # 返回JSON格式的数据
         except requests.exceptions.HTTPError as http_err:
             return {"error": f"HTTP error occurred: {http_err}"}
         except Exception as err:
