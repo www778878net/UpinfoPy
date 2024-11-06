@@ -10,6 +10,7 @@ class Api78:
 
     async def send_back(self, endpoint, params,backtype="json"):
         url = f"{self.base_url}/{endpoint}"
+        back = None
         try:
             response = requests.get(url, params=params)
             response.raise_for_status()  # 检查响应状态码
@@ -19,10 +20,15 @@ class Api78:
                 return    
                   
             if(backtype=="json"):
-                res=json.loads(res["back"])
+                try:
+                    back = json.loads(res["back"])
+                except json.JSONDecodeError as json_err:
+                    #return {"error": f"JSON decode error: {json_err}"}
+                    back=res["back"]
+           
             else:
-                res=res["back"]
-            return res
+                back=res["back"]
+            return back
         except requests.exceptions.HTTPError as http_err:
             return {"error": f"HTTP error occurred: {http_err}"}
         except Exception as err:
