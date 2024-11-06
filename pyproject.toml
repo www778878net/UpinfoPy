@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "upinfopy"
-version = "0.1.20"
+version = "0.1.22"
 description = "Python implementation of UpInfo78"
 authors = ["frieda <www778878net@189.cn>"]
 readme = "README.md"
@@ -33,6 +33,7 @@ publish = "tasks:publish"
 
 [tool.poetry.group.dev.dependencies]
 docutils = "^0.21.2"
+twine = "^5.1.1"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
