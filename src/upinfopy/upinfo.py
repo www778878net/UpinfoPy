@@ -15,6 +15,8 @@ import json
 import urllib.parse
 import base64
 
+import requests
+
 class UpInfo:
     pcid = ""
 
@@ -34,6 +36,7 @@ class UpInfo:
         self.v = 24
         self.cache = ""
         self.midpk = 0
+        self.api = ""
 
     def to_url_encode(self):
         params = []
@@ -96,6 +99,34 @@ class UpInfo:
 
     def set_par(self, *args):
         self.pars.extend(args)
+        return
+    
+    async def send_back(self, endpoint, backtype="json"):
+        url = f"{self.api}/{endpoint}"
+        params = self.to_url_encode()
+        back = None
+        try:
+            response = requests.get(url, params=params)
+            response.raise_for_status()  # 检查响应状态码
+            res= response.json()  # 返回JSON格式的数据
+            if(res["res"]!=0):
+                print(f"{url} 请求失败 : {res['errmsg']}")
+                return    
+                  
+            if(backtype=="json"):
+                try:
+                    back = json.loads(res["back"])
+                except json.JSONDecodeError as json_err:
+                    #return {"error": f"JSON decode error: {json_err}"}
+                    back=res["back"]
+           
+            else:
+                back=res["back"]
+            return back
+        except requests.exceptions.HTTPError as http_err:
+            return {"error": f"HTTP error occurred: {http_err}"}
+        except Exception as err:
+            return {"error": f"An error occurred: {err}"} 
 
     @staticmethod
     def getGuest():
