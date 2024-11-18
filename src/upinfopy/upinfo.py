@@ -37,6 +37,7 @@ class UpInfo:
         self.cache = ""
         self.midpk = 0
         self.api = ""
+        
 
     def to_url_encode(self):
         params = []
@@ -133,12 +134,10 @@ class UpInfo:
         up2 = UpInfo()
         up2.sid = 'GUEST888-8888-8888-8888-GUEST88GUEST'
         up2.cid = 'GUEST000-8888-8888-8888-GUEST00GUEST'
-        up2.bcid = 'd4856531-e9d3-20f3-4c22-fe3c65fb009c'
-        up2.mid = UpInfo.getNewid()
+        up2.bcid = 'd4856531-e9d3-20f3-4c22-fe3c65fb009c'        
         up2.uname = 'guest'
-        up2.pars = []
-        up2.getstart = 0
-        up2.ip = "127.0.0.1"
+        up2.pars = []            
+        up2.api="http://api.778878.net"
         return up2
     
     @staticmethod
