@@ -103,6 +103,9 @@ class UpInfo:
         return
     
     async def send_back(self, endpoint, backtype="json"):
+        if(self.api==""):
+            #print("api not set")
+            return
         url = f"{self.api}/{endpoint}"
         params = self.to_url_encode()
         back = None
