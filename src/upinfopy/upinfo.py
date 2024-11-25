@@ -77,7 +77,7 @@ class UpInfo:
         if order_str != "idpk":
             params.append(f"order={urllib.parse.quote(order_str)}")
         
-        if self.getnumber != 1000:
+        if self.getnumber != 15:
             params.append(f"getnumber={self.getnumber}")
         if self.getstart != 0:
             params.append(f"getstart={self.getstart}")
