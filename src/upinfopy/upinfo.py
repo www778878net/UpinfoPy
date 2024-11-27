@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import asyncio
 import json
 import urllib.parse
 import base64
@@ -115,9 +116,9 @@ class UpInfo:
             res= response.json()  # 返回JSON格式的数据
             if(res["res"]!=0):
                 print(f"{url} 请求失败 : {res['errmsg']}")
-                return    
+                return res    
                   
-            if(backtype=="json"):
+            if(res["kind"]=="json"):
                 try:
                     back = json.loads(res["back"])
                 except json.JSONDecodeError as json_err:
@@ -161,3 +162,27 @@ class UpInfo:
         clonedUpInfo.uname = self.uname
         clonedUpInfo.bcid = self.bcid
         return clonedUpInfo
+
+if __name__ == "__main__":
+    # Create an instance of UpInfo
+    up = UpInfo()
+    
+    # Set master instance
+    up.sid = "some-sid"  # initial sid
+    up.uname = "guest"
+    UpInfo.setMaster(up)
+    
+    # Get master instance and modify its attributes
+    up = UpInfo.getMaster()
+    if up is not None:
+        up.sid = "f41917268"
+        up.getnumber = 500  # Set custom attribute for debugging (if necessary)
+        up.api="http://192.168.31.181:30005"
+        
+        # Call the asynchronous method
+        async def main():
+            dtTrade = await up.send_back("apistock/stock/stock_mine/get", up)
+            print(dtTrade)
+
+        asyncio.run(main())  # Run the async method
+        
