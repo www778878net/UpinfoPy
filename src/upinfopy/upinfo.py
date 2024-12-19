@@ -153,6 +153,7 @@ class UpInfo:
       if UpInfo._masterInstance is None:
         return None
       else:
+        UpInfo._masterInstance.cols = []
         UpInfo._masterInstance.pars = []
         return UpInfo._masterInstance
     
